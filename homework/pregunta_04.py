@@ -5,6 +5,7 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+import csv
 
 def pregunta_04():
     """
@@ -26,3 +27,7 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    with open("files/input/data.csv", 'r') as file:
+    # Leer el archivo CSV separado por espacios
+        reader = csv.reader(file, delimiter='	')
+        

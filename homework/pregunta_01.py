@@ -17,15 +17,17 @@ def pregunta_01():
     
     with open("files/input/data.csv", 'r') as file:
         # Leer el archivo CSV separado por espacios
-        reader = csv.reader(file, delimiter=' ')
+        reader = csv.reader(file, delimiter='	')
 
-        # Imprimir las primeras dos filas
-        for i in range(2):
-            print(next(reader))
+        # Inicializar la variable para almacenar la suma
+        suma = 0
 
+        # Iterar sobre las filas del archivo CSV
+        for row in reader:
+            # Convertir la segunda columna en un número entero y agregarla a la suma
+            suma += int(row[1])
 
-    #    second_column_sum = sum(int(row[1]) for row in reader)
-    #print(second_column_sum)
-    # return second_column_sum
+        # Imprimir la suma
+        print(suma)
 
-pregunta_01()
+    return  suma
