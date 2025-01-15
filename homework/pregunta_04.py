@@ -30,4 +30,27 @@ def pregunta_04():
     with open("files/input/data.csv", 'r') as file:
     # Leer el archivo CSV separado por espacios
         reader = csv.reader(file, delimiter='	')
-        
+
+        # Inicializar un diccionario para contar la cantidad de registros por cada mes
+        counts = {}
+
+        # Iterar sobre las filas del archivo CSV
+        for row in reader:
+            # Obtener la tercera columna (mes) de la fila
+            month = row[2].split('-')[1]
+
+            # Incrementar el contador del mes en 1
+            counts[month] = counts.get(month, 0) + 1
+
+        # Convertir el diccionario en una lista de tuplas
+        result = list(counts.items())
+
+        # Ordenar la lista de tuplas por la primera columna (mes)
+        result.sort(key=lambda x: x[0])
+
+        # Imprimir la lista de tuplas
+        print(result)
+
+        return result
+    
+pregunta_04()
